@@ -1,0 +1,7 @@
+{
+  "name": "jQuery_esitys",
+  "version": "1.0.0",
+  "dependencies": {
+    "graphql": "^14.1.1"
+  }
+}

@@ -10,8 +10,6 @@
             height: 100%;
             margin: 0;
             position: relative;
-            background: #222;
-            font-family: "Open Sans";
         }
 
         #wrap {
@@ -19,18 +17,6 @@
             height: 100%;
             position: relative;
             overflow: hidden;
-        }
-
-        #wrap p {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            color: rgba(255,255,255,.5);
-            font-size: 30px;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-align: center;
         }
 
         .ball {
@@ -43,15 +29,48 @@
             animation: implode 1s ease-in-out;
             animation-fill-mode: both;
             opacity: .5;
+            z-index: 1;
         }
 
+        .tiles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tile {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            transition: transform .9s ease-out;
+        }
+
+
         @keyframes implode {
-            100% {transform: scale(0)}
+            100% {
+                transform: scale(0)
+            }
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-      $(document).ready(function(){
+
+      $(document).ready(function() {
 
         let mousePos = {};
 
@@ -69,31 +88,60 @@
           mousePos.y = -1;
         });
 
-        let draw = setInterval(function(){
-          if(mousePos.x > 0 && mousePos.y > 0){
+        let draw = setInterval(function() {
+          if (mousePos.x > 0 && mousePos.y > 0) {
 
             const range = 15;
 
-            let color = "background: rgb("+getRandomInt(0,255)+","+getRandomInt(0,255)+","+getRandomInt(0,255)+");";
+            let color = 'background: rgb(' + getRandomInt(240, 255) + ',' + getRandomInt(240, 255) + ',' +
+                getRandomInt(250, 255) + ');';
 
-            let sizeInt = getRandomInt(10, 30);
-            size = "height: " + sizeInt + "px; width: " + sizeInt + "px;";
+            let sizeInt = getRandomInt(5, 15);
+            size = 'height: ' + sizeInt + 'px; width: ' + sizeInt + 'px;';
 
-            let left = "left: " + getRandomInt(mousePos.x-range-sizeInt, mousePos.x+range) + "px;";
+            let left = 'left: ' + getRandomInt(mousePos.x - range - sizeInt, mousePos.x + range) + 'px;';
 
-            let top = "top: " + getRandomInt(mousePos.y-range-sizeInt, mousePos.y+range) + "px;";
+            let top = 'top: ' + getRandomInt(mousePos.y - range - sizeInt, mousePos.y + range) + 'px;';
 
-            let style = left+top+color+size;
-            $("<div class='ball' style='" + style + "'></div>").appendTo('#wrap').one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){$(this).remove();});
+            let style = left + top + color + size;
+            $('<div class=\'ball\' style=\'' + style + '\'></div>').
+                appendTo('#wrap').
+                one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                  $(this).remove();
+                });
           }
         }, 1);
+
+        $('.tile')
+        // tile mouse actions
+            .on('mouseover', function(){
+              $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+            })
+            .on('mouseout', function(){
+          $(this).children('.photo').css({'transform': 'scale(1)'});
+        })
+        .on('mousemove', function(e){
+          $(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+        })
+        // tiles set up
+            .each(function(){
+              $(this)
+              // add a photo container
+                  .append('<div class="photo"></div>')
+                  // set up a background image for each tile based on data-image attribute
+                  .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+            })
       });
+
     </script>
 </head>
 <body>
 
-<div id="wrap">
-    <p>move the cursor around the screen</p>
+<div id="wrap"></div>
+
+<div class="tiles">
+    <div class="tile" data-scale="1.8" data-image="https://wallpapercave.com/wp/RZC6Znz.jpg"></div>
 </div>
+
 </body>
 </html>

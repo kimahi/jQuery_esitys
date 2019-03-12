@@ -72,6 +72,8 @@
 
       $(document).ready(function() {
 
+        // Mouse Effect
+
         let mousePos = {};
 
         function getRandomInt(min, max) {
@@ -94,7 +96,7 @@
             const range = 15;
 
             let color = 'background: rgb(' + getRandomInt(240, 255) + ',' + getRandomInt(240, 255) + ',' +
-                getRandomInt(250, 255) + ');';
+                getRandomInt(240, 255) + ');';
 
             let sizeInt = getRandomInt(5, 15);
             size = 'height: ' + sizeInt + 'px; width: ' + sizeInt + 'px;';
@@ -112,8 +114,11 @@
           }
         }, 1);
 
+
+
+        // Background Zoom
+
         $('.tile')
-        // tile mouse actions
             .on('mouseover', function(){
               $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
             })
@@ -123,12 +128,9 @@
         .on('mousemove', function(e){
           $(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
         })
-        // tiles set up
             .each(function(){
               $(this)
-              // add a photo container
                   .append('<div class="photo"></div>')
-                  // set up a background image for each tile based on data-image attribute
                   .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
             })
       });
@@ -140,7 +142,7 @@
 <div id="wrap"></div>
 
 <div class="tiles">
-    <div class="tile" data-scale="1.8" data-image="https://wallpapercave.com/wp/RZC6Znz.jpg"></div>
+    <div class="tile" data-scale="1.5" data-image="https://wallpapercave.com/wp/RZC6Znz.jpg"></div>
 </div>
 
 </body>

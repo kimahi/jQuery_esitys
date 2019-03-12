@@ -1,0 +1,49 @@
+body {
+    text-align: center;
+    background-color: #00B0FF;
+}
+
+h1 {
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tps-section:nth-child(1n) .tps-wrapper {
+    background: url(kuvat/eka.JPG) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tps-section:nth-child(2) .tps-wrapper {
+    background:  url(kuvat/toka.JPG) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tps-section:nth-child(3) .tps-wrapper {
+    background:  url(kuvat/kolmas.JPG) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tps-section:nth-child(4) .tps-wrapper {
+    background:  url(kuvat/neljas.JPG) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tps-section:nth-child(5) .tps-wrapper {
+    background:  url(kuvat/viides.JPG) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.tps-section:nth-child(6) .tps-wrapper {
+    background:  url(kuvat/viides.JPG) center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

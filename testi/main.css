@@ -1,0 +1,37 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    width: 200%;
+    overflow: hidden;
+}
+
+#yksi {
+    background-color: red;
+    height: 100vh;
+    width: 50%;
+    float: left;
+}
+
+#kaksi {
+    background-color: yellow;
+    height: 100vh;
+    width: 50%;
+    float: left;
+}
+
+#kolme {
+    background-color: turquoise;
+    height: 100vh;
+    width: 50%;
+    float: right;
+}
+
+#nelja {
+    background-color: blue;
+    height: 100vh;
+    width: 50%;
+    float: right;
+}

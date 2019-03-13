@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Raspi</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="open-weather-master-20190313T090958Z-001/open-weather-master/src/css/style.css">
+</head>
+<body>
+
+<div id="yksi">
+    <div class="weather-wrapper hide">
+        <img src="" class="weather-icon" alt="Weather Icon" />
+        <p><strong>Place</strong>
+            <br /><span class="weather-place"></span></p>
+        <p><strong>Temperature</strong>
+            <br /><span class="weather-temperature"></span> (<span class="weather-min-temperature"></span> - <span class="weather-max-temperature"></span>)</p>
+        <p><strong>Description</strong>
+            <br /><span class="weather-description capitalize"></span></p>
+        <p><strong>Humidity</strong>
+            <br /><span class="weather-humidity"></span></p>
+        <p><strong>Wind speed</strong>
+            <br /><span class="weather-wind-speed"></span></p>
+    </div>
+
+    <div class="news">
+        <script src="//rss.bloople.net/?url=https%3A%2F%2Ffeeds.yle.fi%2Fuutiset%2Fv1%2FmajorHeadlines%2FYLE_UUTISET.rss&showtitle=true&type=js"></script>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      if (typeof jQuery === 'undefined') {
+        document.write(unescape("%3Cscript src='src/js/lib/jquery.1.9.1.min.js' type='text/javascript'%3E%3C/script%3E"));
+      }
+    </script>
+
+    <script src="open-weather-master-20190313T090958Z-001/open-weather-master/src/openweather.js"></script>
+
+    <script>
+
+      $(function() {
+
+        $('.weather-temperature').openWeather({
+          key: '3d2c64d8e4fd5cdcbb83741ae215eef6',
+          city: 'Myyrmäki',
+          descriptionTarget: '.weather-description',
+          windSpeedTarget: '.weather-wind-speed',
+          minTemperatureTarget: '.weather-min-temperature',
+          maxTemperatureTarget: '.weather-max-temperature',
+          humidityTarget: '.weather-humidity',
+          placeTarget: '.weather-place',
+          iconTarget: '.weather-icon',
+          customIcons: '../src/img/icons/weather/',
+          success: function(data) {
+            // show weather
+            $('.weather-wrapper').show();
+            console.log(data);
+          },
+          error: function(data) {
+            console.log(data.error);
+            $('.weather-wrapper').remove();
+          }
+        });
+
+      });
+
+    </script>
+</div>
+
+<div id="kaksi">Kaksi22222222222222222
+    <iframe src="http://idid.fi/extra/hsl/#4150201"></iframe>
+    <iframe src="http://idid.fi/extra/hsl/#4150296"></iframe>
+</div>
+
+<div id="kolme">Kolme333333333333333</div>
+
+<div id="nelja">Neljä4444444444444</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>

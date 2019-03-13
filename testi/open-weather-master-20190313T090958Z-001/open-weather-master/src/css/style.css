@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.weather-wrapper {
+	text-align: center;
+	color: white;
+	width: 50%;
+	float: left;
+    font: 35px Arial, Helvetica, sans-serif;
+    background: skyblue;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-icon {
+    padding-top: 15px;
+}
+
+.news {
+    width: 50%;
+    float: right;
+    height: 100vh;
+    background-color: #fdfbff;
+}
+
+.feed-title a{
+    padding: 20px;
+    text-decoration: none;
+    color: #00B8C5;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+}
+
+.feed-item-title a{
+    padding: 15px 10px 0 20px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: #1f1d21;
+    display: block;
+}
+
+.feed-item-desc {
+    padding: 0 10px 20px 20px;
+    margin: 0;
+    font: 20px Arial, Helvetica sans-serif;
+}
+
+strong {
+	color: steelblue;
+	font-size: 43px;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.hide {
+	display: none;
+}

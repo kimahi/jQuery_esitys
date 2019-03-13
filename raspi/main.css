@@ -1,0 +1,68 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:900');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("https://cdn.pixabay.com/photo/2016/12/31/16/14/frozen-bubble-1943224_1280.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+    height: 200px;
+    width: 900px;
+    left: 50%;
+    margin-top: -310px;
+    margin-left: -450px;
+    position: absolute;
+    top: 50%;
+}
+
+.textbox {
+    height: 50%;
+    width: 90%;
+    left: 5%;
+    right: 5%;
+    bottom: 50px;
+    position: absolute;
+    border: 5px solid #F36A21;
+    font-size: 14px;
+    background-color: rgba(0, 176, 255, 0.5);
+    border-radius: 30px;
+}
+
+.content {
+    padding-left: 10px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    line-height: 60px;
+    color: #ffe91a;
+    margin-top: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: -50px;
+}
+
+#otsikko {
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    margin-top: 15px;
+    text-align: center;
+    color: #F36A21;
+    margin-bottom: -10px;
+}
